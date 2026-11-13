@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5ee">
+<title>로밍 아틀라스 | 함께 떠나는 세계 여행</title>
+<meta name="application-name" content="로밍 아틀라스"><meta name="apple-mobile-web-app-title" content="로밍 아틀라스">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<button class="brand" data-action="home" aria-label="로밍 아틀라스 홈"><span class="brand-emblem" data-icon="compass"></span><span>Roaming Atlas<small>로밍 아틀라스</small></span></button>
+<nav aria-label="주 메뉴"><button data-action="home" data-nav="home">탐험 홈</button><button data-action="world" data-nav="world">세계 지도</button><button data-action="passport" data-nav="passport">여행 여권</button></nav>
+<button class="room-top" data-action="room"><i data-icon="users"></i><span id="room-label">함께 여행</span></button></div></header>
+<main id="home" class="page">
+<div class="mast"><div class="cover"></div><div class="mast-content"><div class="hero-kicker"><span></span> WORLD EXPLORER</div><h1>여수에서 시작하는<br>세계 여행<span>.</span></h1><p>직접 운전해 공항으로, 비행기를 타고 세계의 거리로.</p><button class="hero-btn" data-action="depart"><i data-icon="compass"></i><b id="hero-action">탐험 시작하기</b><i data-icon="arrow"></i></button></div>
+<button data-action="panorama" class="photo-label"><i data-icon="panorama"></i> 미국 아카디아 국립공원 <span>360°</span></button></div>
+<section class="route-strip"><div class="strip-title"><small>TRIP ITINERARY</small><b>나의 여행 경로</b></div><div class="strip-leg"><i data-icon="car"></i><div><small>출발</small><b id="strip-start">여수시청</b></div></div><div class="dash"></div><div class="strip-leg"><i data-icon="plane"></i><div><small>탑승</small><b id="strip-airport">여수공항</b></div></div><div class="dash"></div><div class="strip-leg"><i data-icon="pin"></i><div><small>목적지</small><b id="strip-dest">도쿄</b></div></div><button class="text-btn" data-action="choose">경로 변경 <i data-icon="chevron"></i></button></section>
+<section class="dest-section"><div class="section-head"><div><small class="eyebrow"><span></span> DESTINATIONS</small><h2>어디로 떠날까요?</h2></div><div class="filters" id="filters" aria-label="여행지 필터"></div></div><div class="cards" id="cards"></div><button class="more" data-action="choose"><i data-icon="globe"></i> 전체 공항에서 여행지 찾기 <i data-icon="arrow"></i></button></section>
+</main>
+<main id="world" class="page" hidden><div class="section-head top-head"><div><small class="eyebrow"><span></span> LIVE ATLAS</small><h1 class="page-title">세계 탐험 지도</h1></div><button class="plain-btn" data-action="choose"><i data-icon="search"></i> 여행지 찾기</button></div>
+<div class="explorer"><section class="map-column"><div class="mapframe">
+<div id="map"></div><div id="map-status" class="map-status" hidden></div><div class="map-tool"><button data-action="recenter" title="내 캐릭터 위치" aria-label="내 캐릭터 위치"><i data-icon="locate"></i></button><button data-action="tiles" id="tile-btn" title="위성 / 도로 지도" aria-label="위성 또는 도로 지도"><i data-icon="layers"></i></button></div>
+</div><div class="map-foot"><span id="coords"></span><button data-action="google"><i data-icon="pin"></i> Google 지도·거리뷰</button></div></section>
+<aside class="flightdeck"><div class="deck-head"><small class="eyebrow"><span></span> TRAVEL CONSOLE</small><button class="icon-btn" data-action="profile" title="캐릭터 설정" aria-label="캐릭터 설정"><i data-icon="user"></i></button></div><div id="console"></div></aside></div>
+<section class="nearby"><div class="section-head"><div><small class="eyebrow"><span></span> FIELD GUIDE</small><h2 id="near-title">주변 탐험</h2></div><button class="plain-btn" data-action="near"><i data-icon="locate"></i> 이 위치 주변 찾기</button></div><div id="places" class="places"></div></section>
+</main>
+<main id="passport" class="page" hidden><div class="section-head top-head"><div><small class="eyebrow"><span></span> TRAVEL JOURNAL</small><h1 class="page-title">나의 여행 여권</h1></div><button class="plain-btn" data-action="profile"><i data-icon="user"></i> 캐릭터 설정</button></div><div class="pass-cover"><div><i data-icon="globe"></i><small>ROAMING ATLAS</small><h2>여행 여권</h2><b id="pass-name"></b></div><div class="pass-count"><strong id="pass-total">0</strong><span>방문 기록</span></div></div><h2 class="journal-title">탐험 기록</h2><div id="journal"></div></main>
+<style>.aircraft-photo{width:100%;height:112px;object-fit:cover;object-position:50% 50%;border-radius:7px;display:block;margin:10px 0}</style><footer><div><span class="brand-foot">Roaming Atlas</span><button data-action="credits">지도·사진 출처</button></div><span>실제 장소를 여행하는 나만의 아틀라스</span></footer>
+<section id="travel-touch" class="touch-dock" aria-label="지도 이동 조작" hidden></section>
+<dialog id="modal"><div class="dialog-top"><div><small id="modal-kicker" class="eyebrow"></small><h2 id="modal-title"></h2></div><button class="icon-btn" id="close" aria-label="닫기"><i data-icon="close"></i></button></div><div id="modal-body"></div></dialog><div id="toast" role="status" aria-live="polite"></div>
+<script defer src="leaflet.js"></script>
+<script defer src="paho.js"></script>
+<script defer src="data.js"></script>
+<script defer src="app.js"></script>
+</body></html>
